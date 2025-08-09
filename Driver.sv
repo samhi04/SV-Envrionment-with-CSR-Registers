@@ -67,7 +67,7 @@ task driver::drive_stimulus(packet pkt);
     @(vif.cb);
   end
   $display("[Driver] Driving of packet %0d (size=%0d) sa%0d->da%0d ended at time=%0t \n",no_of_pkts_recvd,pkt.len,pkt.inp_stream[0],pkt.inp_stream[1],$time);
-  @(vif.cb);
+  //@(vif.cb);
   vif.cb.inp_valid <= 0;
   vif.cb.dut_inp <= 'z;
   repeat(5) @(vif.cb);
@@ -100,3 +100,4 @@ task driver::read_dut_csr(packet pkt);
   vif.cb.rd <= 0;
   $display("[Driver] Reading DUT Status registers Ended at time=%0t",$time);
 endtask
+
